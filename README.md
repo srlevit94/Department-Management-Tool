@@ -27,3 +27,10 @@ THEN I am prompted to enter the employee’s first name, last name, role, and ma
 
 WHEN I choose to update an employee role  
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database  
+
+## Questions:
+What would you like to do?
+    Add emppoyee, Update EMployee ROle, View All roles, Add role, View all Departments, Add Department, View All employees Quit
+
+
+
