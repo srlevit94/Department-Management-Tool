@@ -3,26 +3,21 @@ CREATE DATABASE company_db;
 
 USE company_db;
 
-SELECT DATABASE();
-
 CREATE TABLE departments (
-   id INT NOT NULL AUTO_INCREMENT,
-   name VARCHAR(30) NOT NULL,
-  -- adds an additional constraint, cannot enter two rows with the same value --
-  PRIMARY KEY (id)
+   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   names VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE roles (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
   department_id INT,
-  PRIMARY KEY (id),
   FOREIGN KEY (department_id) REFERENCES departments(id)
-);
+) AUTO_INCREMENT=100;
 
 CREATE TABLE employees (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   role_id INT,
@@ -30,4 +25,4 @@ CREATE TABLE employees (
   FOREIGN KEY (role_id)
   REFERENCES roles(id)
   ON DELETE SET NULL
-);
+) AUTO_INCREMENT=1000;

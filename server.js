@@ -128,23 +128,48 @@ const addEmployee = async () => {
   return inquirer.prompt([
       {
           type: "input",
-          message: "Please enter employee's first name",
-          name: "first-name"
+          message: "Please enter new employee's first name",
+          name: "first_name"
           // when: (data) => data.role !== "None, build my page!"
       },
       {
           type: "input",
-          message: "Please enter employee's last name",
-          name: "first-name"
+          message: "Please enter new employee's last name",
+          name: "last_name"
           // when: (data) => data.role !== "None, build my page!"
       },
       {
-          type: "input",
-          message: "Please enter employee's manager",
-          name: "manager"
-          // when: (data) => data.role !== "None, build my page!"
+        type: "input",
+        message: "Please enter new employee's role ID",
+        name: "role_id"
+        // when: (data) => data.role !== "None, build my page!"
       },
+      {
+          type: "input",
+          message: "Please enter new employee's manager ID",
+          name: "manager_id"
+          // when: (data) => data.role !== "None, build my page!"
+      }
   ])
+  .then((response) => {
+
+    let query = "INSERT INTO employees SET ?";
+
+    db.query(query, {
+      first_name: response.first_name,
+      last_name: response.last_name,
+      role_id: parseInt(response.role_id),
+      manager_id: parseInt(response.manager_id)
+
+    }, function (err, results) {
+      if (err) throw err;
+      console.table(results);
+
+      mainMenu();
+    })
+  })
+
+
 }
 
 // If Add Deptartment
