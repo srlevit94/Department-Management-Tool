@@ -15,11 +15,11 @@ VALUES ("Marketing Specialist", 50000, 1),
        ("Director of Sales", 100000, 4);
 
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Tom", "Haverford", 100, 101),
-       ("Leslie", "Knope", 101, 102),
+VALUES ("Tom", "Haverford", 100, 1001),
+       ("Leslie", "Knope", 101, 1002),
        ("Ron", "Swanson", 102, NULL),
-       ("April", "Ludgate", 103, 102),
-       ("Ben", "Wyatt", 104, 105),
-       ("Chris", "Traeger", 105, 102),
-       ("Andy", "Dwyer", 106, 107),
-       ("Donna", "Meagle", 107, 102);
+       ("April", "Ludgate", 103, 1002),
+       ("Ben", "Wyatt", 104, 1005),
+       ("Chris", "Traeger", 105, 1002),
+       ("Andy", "Dwyer", 106, 1007),
+       ("Donna", "Meagle", 107, 1002);
