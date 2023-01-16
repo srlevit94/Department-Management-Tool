@@ -22,7 +22,7 @@ This application uses Inquirer and MySQL2. After cloning the repository, run "np
     This project is covered under the MIT license.
 
 ## Walkthrough Video
-Link: 
+Link: https://watch.screencastify.com/v/JsXid3oxvYN0Lb7pDW0d
 
  ## Questions
   If you have any questions about the project you can reach out to me via email or GitHub with the information below. 

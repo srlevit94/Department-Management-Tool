@@ -3,7 +3,6 @@ const express = require('express');
 const inquirer = require("inquirer");
 const mysql = require('mysql2');
 
-const PORT = process.env.PORT || 3005;
 const app = express();
 
 // Express middleware
@@ -27,9 +26,6 @@ app.use((req, res) => {
   res.status(404).end();
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
 
 // Main Menu questions.
 const mainMenu = async () => {
@@ -148,7 +144,7 @@ const addEmployee = async () => {
       },
       {
           type: "input",
-          message: "Please enter new employee's manager ID",
+          message: "Please enter the ID of the new employee's manager",
           name: "manager_id"
       }
   ])
@@ -214,13 +210,12 @@ const addRole = async () => {
       },
       {
           type: "input", // choice?
-          message: "Which department does the role belong to?",
+          message: "What is department ID for the new role? (1s or 10s)",
           name: "role_dept"
       }
   ])
   .then((response) => {
     // populate into roles table
-
     db.query("INSERT INTO roles SET ?", {
       title: response.role_name,
       salary: response.role_salary,
@@ -264,18 +259,18 @@ const updateEmployeeRole = async () => {
     return inquirer.prompt ([
     {
         type: "input",
-        message: "Please input the ID of the employee whose role you wish to change.",
+        message: "Please input the ID of the employee whose role you wish to change. (1000s)",
         name: "employee_to_update"
     },
     {
       type: "input",
-      message: "Please input the role ID of the employee's new role.",
+      message: "Please input the role ID of the employee's new role. (100s)",
       name: "new_role",
       // Validate Integer value
     },
     {
         type: "input",
-        message: "Please input the ID the manager for the employee's new role.",
+        message: "Please input the ID the manager for the employee's new role.(1000s)",
         name: "emp_new_manager",
         // Validate Integer value
     }
